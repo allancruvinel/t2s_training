@@ -1,0 +1,27 @@
+package com.t2s.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.t2s.entities.Container;
+import com.t2s.repositories.ContainerRepository;
+
+@Service
+public class ContainerService {
+	
+	@Autowired
+	private ContainerRepository containerRepository;
+	
+	public List<Container> findAll() {
+		return containerRepository.findAll();
+	}
+	public Optional<Container> findById(Long id) {
+		return containerRepository.findById(id);
+	}
+	public Container createContainer(Container container) {
+		return containerRepository.save(container);
+	}
+}

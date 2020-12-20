@@ -1,0 +1,5 @@
+package com.t2s.enums;
+
+public enum Handling {
+	BOARDING, DISCHARGE, GATE_IN, GATE_OUT, STACK, WEIGHING, SCANNER
+}

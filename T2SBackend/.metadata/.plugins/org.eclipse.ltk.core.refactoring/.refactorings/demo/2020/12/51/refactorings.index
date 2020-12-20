@@ -1,0 +1,26 @@
+1608202147572	Rename type 'Cleint'
+1608203163151	Rename type 'TypeContainer'
+1608205634285	Copy compilation unit
+1608205679890	Copy compilation unit
+1608205706934	Copy compilation unit
+1608213631544	Rename field 'start'
+1608213649376	Rename field 'end'
+1608213706096	Rename field 'type'
+1608213727094	Rename field 'status'
+1608217218402	Rename compilation unit 'Type_Container.java'
+1608235510426	Delete element
+1608235514624	Delete element
+1608235667899	Delete element
+1608235670197	Delete element
+1608235810829	Delete element
+1608235814177	Delete element
+1608235824456	Delete element
+1608235828619	Delete element
+1608237957176	Rename compilation unit 'MovimentRepository.java'
+1608298325774	Copy compilation unit
+1608298874897	Delete element
+1608388928549	Rename package 'com.t2s.services.expections'
+1608389015122	Rename compilation unit 'ReportService.java'
+1608396129360	Delete element
+1608397213639	Infer generic type arguments
+1608401930597	Delete element

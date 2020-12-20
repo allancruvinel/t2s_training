@@ -1,0 +1,7 @@
+package com.t2s.enums;
+
+public enum Type_Container {
+	T20(0), T40(1)
+	public int typeContainerValue;
+	TypeContainer
+}

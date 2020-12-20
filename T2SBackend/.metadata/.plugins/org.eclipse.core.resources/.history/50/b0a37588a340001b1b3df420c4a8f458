@@ -1,0 +1,9 @@
+package com.t2s.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.t2s.entities.Client;
+
+public interface ClientRepository extends JpaRepository<Client, Long> {
+
+}

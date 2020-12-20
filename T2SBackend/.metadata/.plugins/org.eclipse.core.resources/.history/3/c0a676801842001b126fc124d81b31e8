@@ -1,0 +1,11 @@
+package com.t2s.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.t2s.entities.MovementReport;
+
+
+public interface MovementReportRepository extends JpaRepository<MovementReport, Long> {
+
+}

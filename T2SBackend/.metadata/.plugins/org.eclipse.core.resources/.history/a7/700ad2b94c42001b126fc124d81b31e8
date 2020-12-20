@@ -1,0 +1,29 @@
+package com.t2s.resourses;
+
+import java.io.FileNotFoundException;
+import java.text.ParseException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.t2s.services.MovementReportService;
+
+import net.sf.jasperreports.engine.JRException;
+
+@RestController
+@RequestMapping(path = "/movementreport")
+public class MovementReportResource {
+	
+	@Autowired
+	MovementReportService reportService;
+
+	@GetMapping
+	public String getReport() throws FileNotFoundException, JRException, ParseException {
+		
+		
+		String filepath = reportService.exportReport();
+		return "";
+	}
+}

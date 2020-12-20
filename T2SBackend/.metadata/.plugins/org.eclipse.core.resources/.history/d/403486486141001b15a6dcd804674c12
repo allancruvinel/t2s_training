@@ -1,0 +1,5 @@
+package com.t2s.config;
+
+public class CorsConfig {
+
+}

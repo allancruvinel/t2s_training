@@ -1,0 +1,57 @@
+package com.t2s.services;
+
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.t2s.entities.MovementReport;
+import com.t2s.repositories.MovementRepository;
+
+import net.sf.jasperreports.engine.JRException;
+
+@Service
+public class MovementReportService {
+
+	@Autowired
+	MovementRepository mr;
+
+	public String exportReport(String reportFormat) throws FileNotFoundException, JRException {
+		
+		List<Object> teste = mr.innverJoinMovementReport();
+		List<MovementReport> mr = new ArrayList<>();
+		for(Object obj:teste) {
+			mr.add((MovementReport) teste);
+		}
+		/*
+		List<MovementReport> movements = query.getResultList();
+
+		for (MovementReport movementReport : movements) {
+			System.out.println(movementReport.toString());
+		}
+
+		// @Query("SELECT u FROM User u WHERE u.status = 1")
+		// List<MovementReport> findAllActiveUsers();
+		/*
+		 * movementRepository.
+		 * 
+		 * 
+		 * 
+		 * return ""; /* // cria o arquivo File file =
+		 * ResourceUtils.getFile("classpath:movements.jrxml"); JasperReport jasperReport
+		 * = JasperCompileManager.compileReport(file.getAbsolutePath());
+		 * JRBeanCollectionDataSource dataSource = new
+		 * JRBeanCollectionDataSource(movements); Map<String, Object> parameters = new
+		 * HashMap<>(); parameters.put("createdBy", "allan"); JasperPrint jasperPrint =
+		 * JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+		 * JasperExportManager.exportReportToHtmlFile(jasperPrint,
+		 * "C:\\Users\\allan\\desktop\\"+"MovementReport.html");
+		 * 
+		 * return "CREATED at C:/movement.html ";
+		 */
+		return "";
+
+	}
+}

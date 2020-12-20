@@ -1,0 +1,46 @@
+package com.t2s.resourses;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.t2s.entities.Client;
+import com.t2s.entities.Container;
+import com.t2s.repositories.ClientRepository;
+import com.t2s.services.ContainerService;
+
+@RestController
+@RequestMapping(value= "/containers")
+public class ContainerResource {
+	
+	@Autowired
+	private ContainerService containerService;
+	
+	@Autowired
+	private ClientRepository clientRepository;
+	
+	@GetMapping
+	public ResponseEntity<List<Container>> findAll(){
+		return ResponseEntity.ok().body(containerService.findAll());
+	}
+	
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<Optional<Container>> findById(@PathVariable Long id){
+		return ResponseEntity.ok().body(containerService.findById(id));
+	}
+	
+	@PostMapping
+	public Container createContainer(@RequestBody Container ct) {
+		clientRepository.save(ct.getClient());
+		return containerService.createContainer(new Container(ct.getClient(),ct.getCntr(),ct.getTypeContainer(),ct.getStatus(),ct.getCategory()));
+		
+	}
+}

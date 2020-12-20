@@ -1,0 +1,14 @@
+package com.t2s.repositories;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.t2s.entities.Movement;
+
+public interface MovementRepository extends JpaRepository<Movement, Long> {
+	
+	@Query("Select * from tb_movement")
+	public List<Long> innverJoinMovementReport();
+}

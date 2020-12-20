@@ -1,0 +1,56 @@
+package com.t2s.services;
+
+import java.io.FileNotFoundException;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.t2s.entities.MovementReport;
+import com.t2s.repositories.MovementRepository;
+
+import net.sf.jasperreports.engine.JRException;
+
+@Service
+public class MovementReportService {
+
+	@Autowired
+	MovementRepository movementRepository;
+
+	public String exportReport(String reportFormat) throws FileNotFoundException, JRException {
+
+		//@Query("SELECT u FROM User u WHERE u.status = 1")
+		//List<MovementReport> findAllActiveUsers();
+		EntityManager entityManager = null;
+		
+		 Query query = entityManager.createQuery("Select tb_container.client as client,\r\n"
+				+ "tb_container.category as category,\r\n"
+				+ "tb_movement.handling as typemoviment,\r\n"
+				+ "tb_movement.ship as ship,\r\n"
+				+ "tb_movement.timestart as startmovement,\r\n"
+				+ "  tb_movement.timeend as endmovement \r\n"
+				+ "from tb_movement,tb_container \r\n"
+				+ "where tb_container.id = tb_movement.container_id order by client, handling");
+		
+		 List<MovementReport> movements = query.getResultList();
+		 
+		for (MovementReport movementReport : movements) {
+			System.out.println(movementReport.toString());
+		}
+		return "";  /*
+		// cria o arquivo
+		File file = ResourceUtils.getFile("classpath:movements.jrxml");
+		JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+		JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(movements);
+		Map<String, Object> parameters = new HashMap<>();
+		parameters.put("createdBy", "allan");
+		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+		JasperExportManager.exportReportToHtmlFile(jasperPrint,"C:\\Users\\allan\\desktop\\"+"MovementReport.html");
+		
+		return "CREATED at C:/movement.html "; */
+
+	}
+}

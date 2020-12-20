@@ -1,0 +1,5 @@
+package com.t2s.enums;
+
+public enum Type_Container {
+	T20, T40
+}

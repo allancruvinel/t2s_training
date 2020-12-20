@@ -1,0 +1,36 @@
+package com.t2s.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Configuration;
+
+import com.t2s.entities.Client;
+import com.t2s.entities.Container;
+import com.t2s.entities.Ship;
+import com.t2s.enums.CategoryContainer;
+import com.t2s.enums.StatusContainer;
+import com.t2s.enums.Type_Container;
+import com.t2s.repositories.ClientRepository;
+
+@Configuration
+public class TestConfig implements CommandLineRunner{
+
+	@Autowired
+	private ClientRepository clientRepository;
+	
+	@Override
+	public void run(String... args) throws Exception {
+		
+		
+		Client client = new Client("Santos Brasil");
+		Ship ship = new Ship("TITANIC");
+		
+		Container container = new Container(client,"124521542",Type_Container.T20,StatusContainer.FULL,CategoryContainer.IMPORT);
+		
+		
+		
+		System.out.println("teste");
+		
+	}
+
+}

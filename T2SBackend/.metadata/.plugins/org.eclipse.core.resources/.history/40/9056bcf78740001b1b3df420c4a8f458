@@ -1,0 +1,95 @@
+package com.t2s.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.t2s.enums.CategoryContainer;
+import com.t2s.enums.StatusContainer;
+import com.t2s.enums.TypeContainer;
+import com.t2s.enums.Type_Container;
+
+@Entity
+@Table(name="tb_container")
+public class Container {
+	
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	private Long id;
+	
+	@ManyToOne
+	@JoinColumn(name="client_id")
+	
+	
+	private Client client;
+	private String cntr;
+	private TypeContainer typeContainer;
+	private StatusContainer status_container;
+	private CategoryContainer category;
+	
+	public Container() {}
+
+	public Container(Client client,String cntr,TypeContainer type, StatusContainer status, CategoryContainer category) {
+		this.client = client;
+		this.cntr = cntr;
+		this.typeContainer = type;
+		this.status_container = status;
+		this.category = category;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public String getCntr() {
+		return cntr;
+	}
+
+	public void setCntr(String cntr) {
+		this.cntr = cntr;
+	}
+
+
+	public TypeContainer getTypeContainer() {
+		return typeContainer;
+	}
+
+	public void setTypeContainer(TypeContainer typeContainer) {
+		this.typeContainer = typeContainer;
+	}
+
+	public StatusContainer getStatus() {
+		return status_container;
+	}
+
+	public void setStatus(StatusContainer status) {
+		this.status_container = status;
+	}
+
+	public CategoryContainer getCategory() {
+		return category;
+	}
+
+	public void setCategory(CategoryContainer category) {
+		this.category = category;
+	}
+
+	
+	
+	
+	
+	
+}
+
