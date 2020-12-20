@@ -1,9 +1,0 @@
-package com.t2s.entities;
-
-public class Client {
-	
-	private Long Id;
-	private String name;
-	
-	
-}

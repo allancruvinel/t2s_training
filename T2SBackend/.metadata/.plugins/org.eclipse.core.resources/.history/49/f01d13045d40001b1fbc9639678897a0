@@ -1,5 +1,0 @@
-package com.t2s.repositories;
-
-public interface ClientRepository {
-
-}

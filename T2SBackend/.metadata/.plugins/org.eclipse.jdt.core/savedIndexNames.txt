@@ -52,6 +52,7 @@ INDEX VERSION 1.131+C:\Users\allan\Desktop\T2S_SELETIVA\T2SBackend\.metadata\.pl
 3156616878.index
 4112379793.index
 1771533824.index
+1629243348.index
 2636192942.index
 4202210002.index
 3151502965.index
@@ -63,7 +64,6 @@ INDEX VERSION 1.131+C:\Users\allan\Desktop\T2S_SELETIVA\T2SBackend\.metadata\.pl
 1836436464.index
 1469665142.index
 490774796.index
-3435648363.index
 1708587350.index
 2988824509.index
 1926198850.index
